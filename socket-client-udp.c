@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 typedef struct {
 char var1;
 int var2;
@@ -40,12 +39,10 @@ int main(int argc, char **argv){
   addr.sin_port = htons(port);
   addr.sin_addr.s_addr = inet_addr(ip);
 
-  //bzero(buffer, 1024);
-  //strcpy(buffer, "Hello, World!");
   sendto(sockfd, (mystruct *)&tosend, sizeof(tosend), 0, (struct sockaddr*)&addr, sizeof(addr));
   printf("Sending data.\n");
 
-  //bzero(buffer, 1024);
+
   addr_size = sizeof(addr);
   recvfrom(sockfd, (mystruct *)&torecv, sizeof(torecv), 0, (struct sockaddr*)&addr, &addr_size);
   printf("Data recv: %c %d\n", torecv.var1, torecv.var2);
