@@ -13,7 +13,6 @@ int var2;
 
 int main(int argc, char **argv){
 
-  char *ip = "10.0.0.2";
   int port = 8080;
 
   int sockfd;
@@ -31,7 +30,7 @@ int main(int argc, char **argv){
   memset(&server_addr, '\0', sizeof(server_addr));
   server_addr.sin_family = AF_INET;
   server_addr.sin_port = htons(port);
-  server_addr.sin_addr.s_addr = inet_addr(ip);
+  server_addr.sin_addr.s_addr = INADDR_ANY;
 
   n = bind(sockfd, (struct sockaddr*)&server_addr, sizeof(server_addr));
   if (n < 0) {
