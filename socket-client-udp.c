@@ -15,7 +15,7 @@ int var2;
 
 int main(int argc, char **argv){
 
-  char *ip = "10.0.0.2";
+  char *ip = "10.0.0.255";
   int port = 8080;
   int yes = 1;
   int sockfd;
